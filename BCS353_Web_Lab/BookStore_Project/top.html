@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            gap: 18px;
+        }
+        .header-bar img {
+            border-radius: 8px;
+            background: white;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header-title h1 {
+            font-size: 22px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .header-title p {
+            font-size: 12px;
+            color: #93c5fd;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .nav-bar {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 8px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .nav-bar a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 20px;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+        .nav-bar a:hover {
+            background-color: #3b82f6;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <img src="logo.jpg" alt="College Logo" width="52" height="52">
+        <div class="header-title">
+            <h1>ABC ENGINEERING COLLEGE</h1>
+            <p>Digital Library & Online Bookstore</p>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <a href="right.html" target="rightFrame">Home</a>
+        <a href="login.html" target="rightFrame">Login</a>
+        <a href="registration.html" target="rightFrame">Registration</a>
+        <a href="catalogue.html" target="rightFrame">Catalogue</a>
+        <a href="cart.html" target="rightFrame">Cart</a>
+    </div>
+</body>
+</html>

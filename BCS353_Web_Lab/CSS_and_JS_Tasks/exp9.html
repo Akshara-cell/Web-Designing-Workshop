@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment 9 - Background Repeat & Link States</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            /* 1. Controls background image repetition horizontally */
+            background-image: url('title.jpg');
+            background-size: 60px 60px;
+            background-repeat: repeat-x;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            margin-top: 75px;
+            background: white;
+            padding: 25px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .repeat-demo {
+            height: 100px;
+            border: 2px dashed #1e3a8a;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #eff6ff;
+            /* 2. Prevents background image repetition */
+            background-image: url('icon.jpg');
+            background-size: 50px 50px;
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+
+        /* 3. Link Pseudo-classes (LVHA Order) */
+        a.styled-link:link {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a.styled-link:visited {
+            color: #6a1b9a;
+        }
+
+        a.styled-link:hover {
+            color: #ffffff;
+            background-color: #ff6f00;
+            padding: 4px 10px;
+            border-radius: 5px;
+            text-decoration: underline;
+        }
+
+        a.styled-link:active {
+            color: #ff0000;
+            background-color: #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>1. Background Repeat Property</h2>
+        <p>The top of this page uses <code>background-repeat: repeat-x;</code> to repeat the tile horizontally.</p>
+        
+        <div class="repeat-demo">
+            This box uses <code>background-repeat: no-repeat;</code> so the icon appears only once on the right.
+        </div>
+
+        <h2>2. CSS Link States (LVHA)</h2>
+        <p>Interact with the links below to see <code>:link</code>, <code>:visited</code>, <code>:hover</code>, and <code>:active</code> styles:</p>
+        <ul>
+            <li><a href="#link1" class="styled-link">Hover or Click Me (Sample Link 1)</a></li><br>
+            <li><a href="https://www.google.com" target="_blank" class="styled-link">Visit External Link (Sample Link 2)</a></li>
+        </ul>
+    </div>
+</body>
+</html>

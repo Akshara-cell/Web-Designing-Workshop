@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment 8 - CSS Fonts & Backgrounds</title>
+    <style>
+        /* Page Background Image */
+        body {
+            background-image: url('bg-page.jpg');
+            background-color: #eef5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+        }
+
+        /* Element Selector */
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #1a237e;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* Class Selector with Element Background Image */
+        .banner-box {
+            background-image: url('bg-box.jpg');
+            background-size: cover;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 70%;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        /* ID Selector */
+        #custom-para {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #b71c1c;
+            background-color: #ffffff;
+            padding: 15px;
+            border-left: 5px solid #b71c1c;
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selectors, Fonts & Backgrounds</h1>
+    
+    <div class="banner-box">
+        <p>This container uses a <strong>Class Selector (.banner-box)</strong> with its own background image and monospace font.</p>
+    </div>
+
+    <p id="custom-para">
+        This paragraph uses an <strong>ID Selector (#custom-para)</strong> to apply custom italic font styling and crimson text color.
+    </p>
+</body>
+</html>

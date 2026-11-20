@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 35px;
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #0f172a;
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+        table {
+            width: 85%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+            text-align: center;
+        }
+        th {
+            background-color: #0f172a;
+            color: white;
+            padding: 14px;
+            font-size: 14px;
+        }
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        .total-row {
+            font-weight: 700;
+            font-size: 16px;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+        }
+        .remove-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .remove-btn:hover { background-color: #dc2626; }
+        .clear-btn {
+            display: block;
+            margin: 22px auto;
+            padding: 10px 22px;
+            background-color: #475569;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .clear-btn:hover { background-color: #1e293b; }
+    </style>
+</head>
+<body>
+    <h2 align="center">Your Shopping Cart</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody">
+            <!-- Cart rows load dynamically here -->
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td colspan="3" align="right">Total Amount:</td>
+                <td id="totalAmount">$0.0</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+
+    <script>
+        function getCart() {
+            return JSON.parse(localStorage.getItem("bookstoreCart")) || [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem("bookstoreCart", JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const tbody = document.getElementById("cartBody");
+            tbody.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+                document.getElementById("totalAmount").textContent = "$0.0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const amount = item.price * item.qty;
+                total += amount;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(1)}</td>
+                    <td>${item.qty}</td>
+                    <td>$${amount.toFixed(1)}</td>
+                    <td><button class="remove-btn" onclick="removeBook(${index})">Remove</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            document.getElementById("totalAmount").textContent = "$" + total.toFixed(1);
+        }
+
+        function removeBook(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCart();
+        }
+
+        function clearCart() {
+            saveCart([]);
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

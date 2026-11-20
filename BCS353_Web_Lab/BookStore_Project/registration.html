@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page with JS Validation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            padding: 25px;
+            margin: 0;
+        }
+        .reg-container {
+            width: 520px;
+            margin: auto;
+            background: white;
+            padding: 30px 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+        h2 {
+            text-align: center;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        table { width: 100%; }
+        td {
+            padding: 9px 6px;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #334155;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="password"], textarea, select {
+            padding: 9px 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input[type="text"], input[type="password"], textarea { width: 94%; }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 24px;
+            margin: 12px 6px 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        input[type="submit"] { background-color: #1e3a8a; color: white; }
+        input[type="submit"]:hover { background-color: #2563eb; }
+        input[type="reset"] { background-color: #e2e8f0; color: #334155; }
+        input[type="reset"]:hover { background-color: #cbd5e1; }
+    </style>
+    <script>
+        function validateForm() {
+            // Retrieve form values
+            var name = document.forms["regForm"]["name"].value.trim();
+            var password = document.forms["regForm"]["password"].value;
+            var email = document.forms["regForm"]["email"].value.trim();
+            var phone = document.forms["regForm"]["phone"].value.trim();
+
+            // Exp 6.1: Name (Alphabets only and length >= 6)
+            var namePattern = /^[A-Za-z\s]+$/;
+            if (name.length < 6 || !namePattern.test(name)) {
+                alert("Name must contain only alphabets and be at least 6 characters long.");
+                return false;
+            }
+
+            // Exp 6.2: Password (Length >= 6)
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Exp 7.3: Email (Standard pattern name@domain.com)
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid E-mail ID (e.g., name@domain.com).");
+                return false;
+            }
+
+            // Exp 7.4: Phone Number (10 digits only)
+            var phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Phone number must contain 10 digits only.");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="reg-container">
+        <h2>Registration Form</h2>
+        <form name="regForm" onsubmit="return validateForm()">
+            <table>
+                <!-- 1. Name -->
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" placeholder="Min 6 alphabets"></td>
+                </tr>
+                <!-- 2. Password -->
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" placeholder="Min 6 characters"></td>
+                </tr>
+                <!-- 3. Email -->
+                <tr>
+                    <td>E-mail ID:</td>
+                    <td><input type="text" name="email" placeholder="name@domain.com"></td>
+                </tr>
+                <!-- 4. Phone Number -->
+                <tr>
+                    <td>Phone Number:</td>
+                    <td><input type="text" name="phone" placeholder="10-digit number"></td>
+                </tr>
+                <!-- 5. Sex -->
+                <tr>
+                    <td>Sex:</td>
+                    <td>
+                        <input type="radio" name="sex" value="Male" checked> Male
+                        <input type="radio" name="sex" value="Female"> Female
+                    </td>
+                </tr>
+                <!-- 6. Date of Birth (3 Select Boxes) -->
+                <!-- 6. Date of Birth (3 Select Boxes) -->
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>
+                        <select name="day">
+                            <option value="">Day</option>
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                            <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                            <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+                            <option>31</option>
+                        </select>
+                        <select name="month">
+                            <option value="">Month</option>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                        </select>
+                        <select name="year">
+                            <option value="">Year</option>
+                            <option>2005</option><option>2006</option><option>2007</option><option>2008</option>
+                            <option>2009</option><option>2010</option><option>2011</option><option>2012</option>
+                            <option>2013</option><option>2014</option><option>2015</option><option>2016</option>
+                            <option>2017</option><option>2018</option><option>2019</option><option>2020</option>
+                            <option>2021</option><option>2022</option><option>2023</option><option>2024</option>
+                            <option>2025</option><option>2026</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- 7. Languages Known -->
+                <tr>
+                    <td>Languages Known:</td>
+                    <td>
+                        <input type="checkbox" name="lang" value="English"> English
+                        <input type="checkbox" name="lang" value="Telugu"> Telugu<br>
+                        <input type="checkbox" name="lang" value="Hindi"> Hindi
+                        <input type="checkbox" name="lang" value="Tamil"> Tamil
+                    </td>
+                </tr>
+                <!-- 8. Address -->
+                <tr>
+                    <td>Address:</td>
+                    <td><textarea name="address" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Register">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

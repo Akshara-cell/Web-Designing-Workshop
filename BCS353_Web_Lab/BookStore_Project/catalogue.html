@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalogue</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 25px 35px;
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #0f172a;
+            font-size: 26px;
+            margin-bottom: 22px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        }
+        th {
+            background-color: #0f172a;
+            color: white;
+            padding: 14px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+        .dept-header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%) !important;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: left;
+            padding: 12px 20px;
+            letter-spacing: 0.5px;
+        }
+        td img {
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        td img:hover {
+            transform: scale(1.06);
+        }
+        .details {
+            text-align: left;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #334155;
+        }
+        .details strong {
+            color: #0f172a;
+        }
+        td:nth-child(3) {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 16px;
+        }
+        button {
+            padding: 9px 16px;
+            background-color: #10b981;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s;
+        }
+        button:hover {
+            background-color: #059669;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">Book Catalogue</h2>
+    <table>
+        <tr>
+            <th>Cover Page</th>
+            <th>Book Details</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+
+        <!-- ==================== CSE BOOKS (5) ==================== -->
+        <tr id="cse">
+            <td colspan="4" class="dept-header">Computer Science & Engineering (CSE)</td>
+        </tr>
+        <tr>
+            <td><img src="xml.png" alt="XML Bible" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> XML Bible<br><strong>Author:</strong> Winston<br><strong>Publication:</strong> Wiley</td>
+            <td>$40.5</td>
+            <td><button onclick="alert('XML Bible added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="ai.jpg" alt="Artificial Intelligence" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Artificial Intelligence<br><strong>Author:</strong> S. Russel<br><strong>Publication:</strong> Princeton Hall</td>
+            <td>$63.0</td>
+            <td><button onclick="alert('Artificial Intelligence added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="java.jpg" alt="Java 2" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Java 2<br><strong>Author:</strong> Watson<br><strong>Publication:</strong> BPB Publications</td>
+            <td>$35.5</td>
+            <td><button onclick="alert('Java 2 added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="html.jpg" alt="HTML in 24 Hours" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> HTML in 24 Hours<br><strong>Author:</strong> Sam Peter<br><strong>Publication:</strong> Sam Publication</td>
+            <td>$50.0</td>
+            <td><button onclick="alert('HTML in 24 Hours added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="cse5.jpg" alt="Introduction to Algorithms" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Introduction to Algorithms<br><strong>Author:</strong> Thomas H. Cormen<br><strong>Publication:</strong> MIT Press</td>
+            <td>$75.0</td>
+            <td><button onclick="alert('Introduction to Algorithms added to cart!')">Add to Cart</button></td>
+        </tr>
+
+        <!-- ==================== ECE BOOKS (5) ==================== -->
+        <tr id="ece">
+            <td colspan="4" class="dept-header">Electronics & Communication Engineering (ECE)</td>
+        </tr>
+        <tr>
+            <td><img src="ece1.jpg" alt="Digital Design" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Digital Design<br><strong>Author:</strong> M. Morris Mano<br><strong>Publication:</strong> Pearson</td>
+            <td>$45.0</td>
+            <td><button onclick="alert('Digital Design added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="ece2.png" alt="Microelectronic Circuits" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Microelectronic Circuits<br><strong>Author:</strong> Sedra & Smith<br><strong>Publication:</strong> Oxford University Press</td>
+            <td>$68.0</td>
+            <td><button onclick="alert('Microelectronic Circuits added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="ece3.jpg" alt="Signals and Systems" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Signals and Systems<br><strong>Author:</strong> Alan V. Oppenheim<br><strong>Publication:</strong> Prentice Hall</td>
+            <td>$55.5</td>
+            <td><button onclick="alert('Signals and Systems added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="ece4.jpg" alt="Communication Systems" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Communication Systems<br><strong>Author:</strong> Simon Haykin<br><strong>Publication:</strong> Wiley</td>
+            <td>$52.0</td>
+            <td><button onclick="alert('Communication Systems added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="ece5.jpg" alt="8085 Microprocessor" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Microprocessor Architecture<br><strong>Author:</strong> Ramesh Gaonkar<br><strong>Publication:</strong> Penram International</td>
+            <td>$38.0</td>
+            <td><button onclick="alert('Microprocessor Architecture added to cart!')">Add to Cart</button></td>
+        </tr>
+
+        <!-- ==================== EEE BOOKS (5) ==================== -->
+        <tr id="eee">
+            <td colspan="4" class="dept-header">Electrical & Electronics Engineering (EEE)</td>
+        </tr>
+        <tr>
+            <td><img src="eee1.jpg" alt="Electrical Machinery" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Electrical Machinery<br><strong>Author:</strong> P.S. Bimbhra<br><strong>Publication:</strong> Khanna Publishers</td>
+            <td>$42.0</td>
+            <td><button onclick="alert('Electrical Machinery added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="eee2.jpg" alt="Power System Analysis" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Power System Analysis<br><strong>Author:</strong> Hadi Saadat<br><strong>Publication:</strong> McGraw Hill</td>
+            <td>$58.0</td>
+            <td><button onclick="alert('Power System Analysis added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="eee3.jpg" alt="Control Systems Engineering" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Control Systems Engineering<br><strong>Author:</strong> Norman S. Nise<br><strong>Publication:</strong> Wiley</td>
+            <td>$60.5</td>
+            <td><button onclick="alert('Control Systems Engineering added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="eee4.jpg" alt="Basic Electrical Engineering" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Basic Electrical Engineering<br><strong>Author:</strong> D.C. Kulshreshtha<br><strong>Publication:</strong> Tata McGraw Hill</td>
+            <td>$34.0</td>
+            <td><button onclick="alert('Basic Electrical Engineering added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="eee5.jpg" alt="Power Electronics" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Power Electronics<br><strong>Author:</strong> Muhammad H. Rashid<br><strong>Publication:</strong> Pearson</td>
+            <td>$49.5</td>
+            <td><button onclick="alert('Power Electronics added to cart!')">Add to Cart</button></td>
+        </tr>
+
+        <!-- ==================== CIVIL BOOKS (5) ==================== -->
+        <tr id="civil">
+            <td colspan="4" class="dept-header">Civil Engineering (CIVIL)</td>
+        </tr>
+        <tr>
+            <td><img src="civil1.jpg" alt="Strength of Materials" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Strength of Materials<br><strong>Author:</strong> R.K. Bansal<br><strong>Publication:</strong> Laxmi Publications</td>
+            <td>$36.0</td>
+            <td><button onclick="alert('Strength of Materials added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="civil2.jpg" alt="Structural Analysis" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Structural Analysis<br><strong>Author:</strong> R.C. Hibbeler<br><strong>Publication:</strong> Pearson</td>
+            <td>$64.0</td>
+            <td><button onclick="alert('Structural Analysis added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="civil3.jpg" alt="Surveying Vol 1" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Surveying Vol. 1<br><strong>Author:</strong> B.C. Punmia<br><strong>Publication:</strong> Laxmi Publications</td>
+            <td>$32.5</td>
+            <td><button onclick="alert('Surveying Vol. 1 added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="civil4.jpg" alt="Fluid Mechanics" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Fluid Mechanics<br><strong>Author:</strong> Frank M. White<br><strong>Publication:</strong> McGraw Hill</td>
+            <td>$54.0</td>
+            <td><button onclick="alert('Fluid Mechanics added to cart!')">Add to Cart</button></td>
+        </tr>
+        <tr>
+            <td><img src="civil5.jpg" alt="Soil Mechanics" width="70" height="90"></td>
+            <td class="details"><strong>Book:</strong> Soil Mechanics & Foundations<br><strong>Author:</strong> K.R. Arora<br><strong>Publication:</strong> Standard Publishers</td>
+            <td>$39.0</td>
+            <td><button onclick="alert('Soil Mechanics & Foundations added to cart!')">Add to Cart</button></td>
+        </tr>
+    </table>
+    <script>
+    document.querySelectorAll("table tr").forEach(row => {
+        const btn = row.querySelector("button");
+        const detailsCell = row.querySelector(".details");
+        if (btn && detailsCell) {
+            btn.onclick = function () {
+                const bookTitle = detailsCell.innerHTML.match(/<strong>Book:<\/strong>\s*([^<]+)/)[1].trim();
+                const priceText = row.cells[2].textContent.replace("$", "").trim();
+                const price = parseFloat(priceText);
+
+                let cart = JSON.parse(localStorage.getItem("bookstoreCart")) || [];
+
+                const existing = cart.find(item => item.name === bookTitle);
+                if (existing) {
+                    existing.qty += 1;
+                } else {
+                    cart.push({ name: bookTitle, price: price, qty: 1 });
+                }
+
+                localStorage.setItem("bookstoreCart", JSON.stringify(cart));
+                alert(bookTitle + " added to cart!");
+            };
+        }
+    });
+</script>
+</body>
+</html>

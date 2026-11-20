@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 10 - Interactive To-Do List</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .todo-app {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #2a5298;
+        }
+        button#addBtn {
+            padding: 12px 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button#addBtn:hover {
+            background-color: #1e3c72;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f4f6f9;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border-left: 4px solid #2a5298;
+            transition: all 0.2s;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: #888;
+            border-left-color: #28a745;
+            background: #e9ecef;
+        }
+        .task-text {
+            cursor: pointer;
+            flex: 1;
+        }
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .delete-btn:hover {
+            background: #c82333;
+        }
+        .stats {
+            margin-top: 15px;
+            text-align: right;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="todo-app">
+    <h1>My Task Manager</h1>
+    <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Enter a new task..." onkeypress="handleKeyPress(event)">
+        <button id="addBtn" onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+    <div class="stats" id="taskStats">Total Tasks: 0 | Completed: 0</div>
+</div>
+
+<script>
+    let tasks = [];
+
+    function addTask() {
+        const input = document.getElementById("taskInput");
+        const taskText = input.value.trim();
+
+        if (taskText === "") {
+            alert("Please enter a task before adding!");
+            return;
+        }
+
+        tasks.push({ text: taskText, completed: false });
+        input.value = "";
+        renderTasks();
+    }
+
+    function toggleTask(index) {
+        tasks[index].completed = !tasks[index].completed;
+        renderTasks();
+    }
+
+    function deleteTask(index) {
+        tasks.splice(index, 1);
+        renderTasks();
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    }
+
+    function renderTasks() {
+        const list = document.getElementById("taskList");
+        list.innerHTML = "";
+
+        tasks.forEach((task, index) => {
+            const li = document.createElement("li");
+            if (task.completed) li.classList.add("completed");
+
+            const span = document.createElement("span");
+            span.className = "task-text";
+            span.textContent = task.text;
+            span.onclick = () => toggleTask(index);
+
+            const delBtn = document.createElement("button");
+            delBtn.className = "delete-btn";
+            delBtn.textContent = "Delete";
+            delBtn.onclick = () => deleteTask(index);
+
+            li.appendChild(span);
+            li.appendChild(delBtn);
+            list.appendChild(li);
+        });
+
+        const completedCount = tasks.filter(t => t.completed).length;
+        document.getElementById("taskStats").textContent = 
+            `Total Tasks: ${tasks.length} | Completed: ${completedCount}`;
+    }
+</script>
+
+</body>
+</html>

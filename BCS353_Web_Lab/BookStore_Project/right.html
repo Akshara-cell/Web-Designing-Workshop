@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 35px;
+        }
+        .hero-card {
+            background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+            margin-bottom: 25px;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.25s;
+        }
+        .cta-btn:hover { background-color: #2563eb; }
+        .grid {
+            display: flex;
+            gap: 18px;
+        }
+        .info-box {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .info-box h3 {
+            font-size: 16px;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+        .info-box p {
+            font-size: 13px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-card">
+        <span class="badge">ACADEMIC SESSION 2026</span>
+        <h2>Welcome to the Online Engineering Bookstore</h2>
+        <p>Explore curated textbooks and reference guides across Computer Science (CSE), Electronics & Communication (ECE), Electrical & Electronics (EEE), and Civil Engineering. Browse by branch, add titles to your cart, and manage your academic reading list effortlessly.</p>
+        <a href="catalogue.html" class="cta-btn">Explore Full Catalogue &rarr;</a>
+    </div>
+
+    <div class="grid">
+        <div class="info-box">
+            <h3>4 Core Branches</h3>
+            <p>Dedicated collections tailored for CSE, ECE, EEE, and Civil engineering curricula.</p>
+        </div>
+        <div class="info-box">
+            <h3>Instant Cart</h3>
+            <p>Add multiple textbooks, track quantities, and calculate totals automatically.</p>
+        </div>
+        <div class="info-box">
+            <h3>Student Portal</h3>
+            <p>Quick student registration and account login right from the top navigation bar.</p>
+        </div>
+    </div>
+</body>
+</html>
